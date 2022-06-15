@@ -1,4 +1,5 @@
-'''
+
+```
 #!/bin/bash
 
 if [ $# -gt 2 ] || [ $# -lt 1 ]; then
@@ -22,4 +23,4 @@ else
         find -L $1 -type l
 fi
 
-'''
+```
