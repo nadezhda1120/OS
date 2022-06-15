@@ -14,7 +14,7 @@ A=$(cat $F| sort -nr | uniq | egrep "^\-?${max_value$}")
 max=-1
 B=0
 while read line; do
-        sum=$(cat $line | sort -n | uniq | tr -d '-' | sed 's/\([0-9]\)/\1 /g'| awk 'BEGIN{total=0}{total+=$1}{print $total}')
+        sum=$(cat $line | sort -n | uniq | tr -d '-' | sed 's/\([0-9]\)/+\1/g' | cut -d '+' -f2- | bc)
         if [  $sum -gt $max ]; then
                 max=$sum
                 B=$line
