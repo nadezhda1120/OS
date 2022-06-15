@@ -4,10 +4,8 @@ F=$(mktemp)
 
 cat $@ | while read line
 do
-echo "$line"
-#egrep "^\-?[0-9]+$" $line >> $F
+egrep "^\-?[0-9]+$" $line >> $F
 done
-echo "$F"
 max_value=$(cat $F| sort -rn |uniq | head -n 1)
 A=$(cat $F| sort -nr | uniq | egrep "^\-?${max_value$}")
 
